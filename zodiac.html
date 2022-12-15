@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculadora de signo del zodiaco</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        text-align: center;
+      }
+      #resultado {
+        font-size: larger;
+        font-weight: bold;
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Calculadora de signo del zodiaco</h1>
+    <form id="formulario">
+      <label for="fecha_nacimiento">Introduce tu fecha de nacimiento:</label><br>
+      <input type="date" id="fecha_nacimiento"><br><br>
+      <input type="button" value="Calcular" onclick="calcularSignoZodiaco()">
+    </form>
+    <p id="resultado"></p>
+    <script>
+      function calcularSignoZodiaco() {
+        // Obtenemos la fecha de nacimiento del usuario del formulario
+        var fechaNacimiento = document.getElementById("fecha_nacimiento").value;
+
+        // Convertimos la fecha de nacimiento a un objeto de tipo Date de JavaScript
+        fechaNacimiento = new Date(fechaNacimiento);
+
+        // Extraemos el día y el mes de la fecha de nacimiento
+        var dia = fechaNacimiento.getDate();
+        var mes = fechaNacimiento.getMonth() + 1; // Los meses van de 0 a 11 en JavaScript
+
+        // Calculamos el signo del zodiaco a partir del día y el mes de nacimiento
+        var signo;
+        switch (mes) {
+          case 1:
+            signo = (dia <= 19) ? "Capricornio" : "Acuario";
+            break;
+          case 2:
+            signo = (dia <= 18) ? "Acuario" : "Piscis";
+            break;
+          case 3:
+            signo = (dia <= 20) ? "Piscis" : "Aries";
+            break;
+          case 4:
+            signo = (dia <= 19) ? "Aries" : "Tauro";
+            break;
+          case 5:
+            signo = (dia <= 20) ? "Tauro" : "Géminis";
+            break;
+          case 6:
+            signo = (dia <= 20) ? "Géminis" : "Cáncer";
+            break;
+          case 7:
+            signo = (dia <= 22) ? "Cáncer" : "Leo";
+            break;
+          case 8:
+            signo = (dia <= 22) ? "Leo" : "Virgo";
+            break;
+          case 9:
+            signo = (dia <= 22) ? "Virgo" : "Libra";
+            break;
+          case 10:
+            signo = (dia <= 22) ? "Libra" : "Escorpio";
+            break;
+          case 11:
+            signo = (dia <= 21) ? "Escorpio" : "Sagitario";
+            break;
+          case 12:
+            signo = (dia <= 21) ? "Sagitario" : "Capricornio";
+            break;
+        }
+
+        // Mostramos el signo del zodiaco del usuario en pantalla
+        alert("Tu signo del zodiaco es: " + signo);
+      }
+    </script>
+  </body>
+</html>
